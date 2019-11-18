@@ -1,0 +1,22 @@
+
+# getting the base image
+FROM        node:alpine
+
+# setting the workdie to /app# I thought we dont need quotes here.
+WORKDIR     '/app'
+
+#The package.json file was created using the react project generation script.
+COPY        package.json .
+
+# run the npm install so that it will get all dependencies
+RUN         npm install
+
+# one can depend on the docker-compose to manage the copy part to a volume. 
+# however having this copy here will help when we use docker without docker-compose.
+COPY . . 
+
+# this is the final command that we need to run on starting the container.
+# also locally I used to run npm start    nor num run start
+# lets see how it works
+CMD ["npm", "run", "start"]
+
