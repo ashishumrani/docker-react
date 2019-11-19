@@ -3,8 +3,8 @@ services:
   - docker
 
 before-install:
-  - docker build -f -t ashishumrani/docker-react Dockerfile.dev .
+  - docker build -f Dockerfile.dev -t ashishumrani/docker-react  .
 
 script:
   - docker run ashishumrani/docker-react -- --coverage
-  
+
