@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before-install:
+  - docker build -f -t ashishumrani/docker-react Dockerfile.dev .
+
+script:
+  - docker run ashishumrani/docker-react -- --coverage
+  
